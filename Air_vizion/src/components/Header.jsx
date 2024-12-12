@@ -1,46 +1,33 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
+  const location = useLocation(); // Get the current location
+
   return (
     <header>
       <nav className="nav">
-        <Link to="/" className="site-titel">
+        <Link to="/" className="site-title">
           Air Vizion
         </Link>
         <ul>
-          <li>
-            {" "}
-            <Link to="/system">System</Link>
-          </li>
-          <li>
-            <Link to="/Solution">Solution</Link>
-          </li>
-          <li>
-            <Link to="/sensors">Sensors</Link>{" "}
-          </li>
-          <li>
-            <Link to="/implementation">Implementation</Link>{" "}
-          </li>
-          <li>
-            <Link to="/feedback">Feedback</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
+          <CustomLink to="/system">System</CustomLink>
+          <CustomLink to="/solution">Solution</CustomLink>
+          <CustomLink to="/sensors">Sensors</CustomLink>
+          <CustomLink to="/implementation">Implementation</CustomLink>
+          <CustomLink to="/feedback">Feedback</CustomLink>
+          <CustomLink to="/contact">Contact</CustomLink>
         </ul>
       </nav>
     </header>
   );
 }
 
-function CustomLink({ to, children, ...props }) {
-  const path = window.location.pathname;
+function CustomLink({ to, children }) {
+  const location = useLocation(); // Get the current location
 
   return (
-    <li className={path === to ? "active" : ""}>
-      <Link to={to} {...props}>
-        {children}
-      </Link>
+    <li className={location.pathname.toLowerCase() === to.toLowerCase() ? "active" : ""}>
+      <Link to={to}>{children}</Link>
     </li>
   );
 }
