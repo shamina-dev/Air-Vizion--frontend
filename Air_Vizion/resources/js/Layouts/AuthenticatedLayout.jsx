@@ -20,12 +20,7 @@ export default function AuthenticatedLayout({ header, children }) {
                             <div className="flex shrink-0 items-center"></div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink
-                                    href={route("dashboard")}
-                                    active={route().current("dashboard")}
-                                >
-                                    Air Vizion
-                                </NavLink>
+                                <NavLink>Air Vizion</NavLink>
                             </div>
                         </div>
 

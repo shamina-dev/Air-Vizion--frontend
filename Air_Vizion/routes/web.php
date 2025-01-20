@@ -54,6 +54,7 @@ Route::middleware(['auth','role:admin'])->group(function(){ //admin login dashbo
     Route::get('/admin/dashboard',[AdminController::class,'dashboard']);
 });
 
+Route::delete('/admin/users/{id}', [AdminController::class, 'deleteUser'])->name('admin.users.delete');
 
 require __DIR__.'/auth.php';
 
