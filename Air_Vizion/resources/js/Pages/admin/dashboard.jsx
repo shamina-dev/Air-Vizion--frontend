@@ -32,48 +32,60 @@ export default function Dashboard({ data }) {
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <br />
-                                        <br />
-                                        <th>Name</th>
-                                        <br />
-                                        <br />
-                                        <th>Email</th>
-                                        <br />
-                                        <br />
-                                        <th>Action</th>
-                                        <br />
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {data.map((user) => (
-                                        <tr key={user.id}>
-                                            <td>{user.id}</td>
-                                            <br />
-                                            <br />
-                                            <td>{user.name}</td>
-                                            <br />
-                                            <br />
-                                            <td>{user.email}</td>
-                                            <br />
-                                            <br />
-                                            <td>
-                                                <button
-                                                    onClick={() =>
-                                                        handleDelete(user.id)
-                                                    }
-                                                    className="px-4 py-2 text-white bg-red-500 rounded"
-                                                >
-                                                    Delete
-                                                </button>
-                                            </td>
+                            <div className="overflow-x-auto">
+                                <table className="w-full border-collapse border border-gray-300">
+                                    <thead className="bg-gray-100">
+                                        <tr>
+                                            <th className="border border-gray-300 px-4 py-2 text-left text-sm font-medium text-gray-600">
+                                                ID
+                                            </th>
+                                            <th className="border border-gray-300 px-4 py-2 text-left text-sm font-medium text-gray-600">
+                                                Name
+                                            </th>
+                                            <th className="border border-gray-300 px-4 py-2 text-left text-sm font-medium text-gray-600">
+                                                Email
+                                            </th>
+                                            <th className="border border-gray-300 px-4 py-2 text-left text-sm font-medium text-gray-600">
+                                                Action
+                                            </th>
                                         </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        {data.map((user, index) => (
+                                            <tr
+                                                key={user.id}
+                                                className={`${
+                                                    index % 2 === 0
+                                                        ? "bg-white"
+                                                        : "bg-gray-50"
+                                                } hover:bg-gray-100`}
+                                            >
+                                                <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">
+                                                    {user.id}
+                                                </td>
+                                                <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">
+                                                    {user.name}
+                                                </td>
+                                                <td className="border border-gray-300 px-4 py-2 text-sm text-gray-700">
+                                                    {user.email}
+                                                </td>
+                                                <td className="border border-gray-300 px-4 py-2 text-sm">
+                                                    <button
+                                                        onClick={() =>
+                                                            handleDelete(
+                                                                user.id
+                                                            )
+                                                        }
+                                                        className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600"
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

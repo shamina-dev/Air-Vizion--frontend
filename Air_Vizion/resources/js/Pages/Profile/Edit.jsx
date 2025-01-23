@@ -1,16 +1,24 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
-import DeleteUserForm from './Partials/DeleteUserForm';
-import UpdatePasswordForm from './Partials/UpdatePasswordForm';
-import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import { Head } from "@inertiajs/react";
+import DeleteUserForm from "./Partials/DeleteUserForm";
+import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
+import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm";
 
 export default function Edit({ mustVerifyEmail, status }) {
     return (
         <AuthenticatedLayout
             header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800">
-                    Profile
-                </h2>
+                <div className="flex items-center justify-between">
+                    <h2 className="text-xl font-semibold leading-tight text-gray-800">
+                        Profile
+                    </h2>
+                    <button
+                        onClick={() => window.history.back()}
+                        className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+                    >
+                        Back
+                    </button>
+                </div>
             }
         >
             <Head title="Profile" />
