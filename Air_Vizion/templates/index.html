@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pollution Prediction</title>
+    <style>
+      #prediction-form {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f4f4f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      #prediction-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      #prediction-form input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+
+      #prediction-form input:focus {
+        border-color: #4caf50;
+        outline: none;
+      }
+
+      #prediction-form button {
+        padding: 12px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      #prediction-form button:hover {
+        background-color: #45a049;
+      }
+      #title {
+        text-align: center; /* Horizontally centers the text */
+        font-size: 2em; /* Adjust the font size */
+        margin-bottom: 20px; /* Adds space below the title */
+      }
+      #prediction-result {
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto; /* Centers the content horizontally */
+        padding: 20px;
+        background-color: #f4f4f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center; /* Centers the text inside the div */
+        font-size: 16px;
+        white-space: pre-wrap; /* Allows the formatted JSON to wrap within the container */
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">Predict Pollution Levels</h1>
+
+    <form id="prediction-form">
+      <label for="temp_max">Temperature Max (°C):</label>
+      <input
+        type="number"
+        id="temp_max"
+        name="temperature_2m_max (°C)"
+        required
+      /><br /><br />
+
+      <label for="temp_min">Temperature Min (°C):</label>
+      <input
+        type="number"
+        id="temp_min"
+        name="temperature_2m_min (°C)"
+        required
+      /><br /><br />
+
+      <label for="sunshine">Sunshine Duration (s):</label>
+      <input
+        type="number"
+        id="sunshine"
+        name="sunshine_duration (s)"
+        required
+      /><br /><br />
+
+      <label for="rain">Rain Sum (mm):</label>
+      <input
+        type="number"
+        id="rain"
+        name="rain_sum (mm)"
+        required
+      /><br /><br />
+
+      <label for="radiation">Shortwave Radiation (MJ/m²):</label>
+      <input
+        type="number"
+        id="radiation"
+        name="shortwave_radiation_sum (MJ/m²)"
+        required
+      /><br /><br />
+
+      <button type="button" onclick="predict()">Predict</button>
+    </form>
+
+    <h2 id="title">Predicted Values:</h2>
+    <pre id="prediction-result"></pre>
+
+    <script>
+      async function predict() {
+        const formData = {
+          "temperature_2m_max (°C)": document.getElementById("temp_max").value,
+          "temperature_2m_min (°C)": document.getElementById("temp_min").value,
+          "sunshine_duration (s)": document.getElementById("sunshine").value,
+          "rain_sum (mm)": document.getElementById("rain").value,
+          "shortwave_radiation_sum (MJ/m²)":
+            document.getElementById("radiation").value,
+        };
+
+        const response = await fetch("/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+        document.getElementById("prediction-result").innerText = JSON.stringify(
+          result,
+          null,
+          2
+        );
+      }
+    </script>
+  </body>
+</html>
