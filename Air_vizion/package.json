@@ -22,6 +22,8 @@
     },
     "dependencies": {
         "@inertiajs/inertia-react": "^0.8.1",
+        "chart.js": "^4.4.7",
+        "firebase": "^11.2.0",
         "react-router-dom": "^7.0.2"
     }
 }

@@ -1,5 +1,8 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
+import React, { useEffect, useState } from "react";
+import { Chart } from "chart.js/auto";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 export default function Dashboard() {
     return (
@@ -11,7 +14,7 @@ export default function Dashboard() {
                     </h2>
                     <button
                         onClick={() =>
-                            (window.location.href = "/air-quality-predictor")
+                            (window.location.href = " http://127.0.0.1:5000")
                         }
                         className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
                     >
