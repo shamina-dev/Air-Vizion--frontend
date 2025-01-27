@@ -1,0 +1,182 @@
+body {
+    font-family: 'Open Sans', Arial, sans-serif; /* Updated to use Open Sans */
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light gray background for the entire page */
+}
+
+.titel {
+    background-color: #007bff; /* Blue header background */
+    background-image: url("../assets/system01.png");
+    background-size: contain;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 35px !important;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 5%;
+}
+
+.system-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px; /* Increased padding for larger text sections */
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: white; /* Set container background color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a slight shadow for contrast */
+    border-radius: 8px; /* Rounded edges */
+    gap: 20px;
+}
+
+.system-container .text-section {
+    font-size: 18px; /* Increased font size for readability */
+    line-height: 1.8; /* Improved line height */
+}
+
+.full-width {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    justify-content: flex-end;
+}
+
+.last-con-titel {
+    font-size: 50px !important; /* Set a larger font size */
+    font-weight: bold;
+    text-align: center;
+}
+
+.contents{
+    font-size: 20px !important;
+}
+
+.container-titel{
+    font-size: 30px !important;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.system-container .full-width .text-section {
+    margin-top: 1rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+.image-section {
+    flex: 1;
+    text-align: center;
+    background-color: #eaeaea; /* Placeholder gray background for missing images */
+    border-radius: 8px;
+    min-height: 310px; /* Placeholder height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    height: auto;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.text-section {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.text-section h1 {
+    font-size: 26px; /* Larger font size for headers */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.text-section p {
+    font-size: 18px; /* Larger font size */
+    line-height: 1.8; /* Improved spacing for readability */
+    color: #555;
+}
+
+.text-section ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.text-section ul li {
+    list-style-type: disc;
+    margin-bottom: 8px; /* Increased spacing for list items */
+    font-size: 18px;
+    color: #333;
+}
+
+.container1 {
+    background-image: url("../assets/system01.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container2 {
+    background-image: url("../assets/system02.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container3 {
+    background-image: url("../assets/system03.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container4 {
+    background-image: url("../assets/system04.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container5 {
+    background-image: url("../assets/system05.jpg");
+    background-repeat: no-repeat;
+    background-size: cover, contain;
+    background-position: center;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    .system-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .reverse-layout {
+        flex-direction: column;
+    }
+
+    .text-section {
+        margin-left: 0;
+    }
+
+    .image-section {
+        margin-bottom: 20px;
+    }
+}
