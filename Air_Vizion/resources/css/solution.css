@@ -9,7 +9,7 @@ body {
 
 .titel {
     background-color: #007bff; /* Blue header background */
-    background-image: url("../assets/solution01.webp");
+    background-image: url("../assets/solution02.webp");
     background-size: contain, cover ;
     background-repeat: round;
     font-family: 'Open Sans', sans-serif !important;
@@ -51,15 +51,28 @@ body {
 
   }
  .ct2{
- margin-bottom: 100px !important;
+ margin-bottom: 150px !important;
  }
   .ct3{
     padding: auto;
-    margin: 24px;
+    margin: 0px 100px 0px 100px;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    min-height: 500px;
     
+  }
+
+  .ct3-child{
+    display: flex !important;
+    margin: 20px 100px 0px 100px !important;
+    align-items: center !important;
+    min-height: 500px;
+    justify-content: center !important;
+  }
+
+  .ct3-2ndchild{
+    margin: -20px 150px 0px 150px !important;
   }
 
   .full-width {
@@ -170,6 +183,14 @@ body {
     background-color: #ffffff8c; /* Light green */
   }
 
+  .ct1{
+    margin: 10px 100px 10px 100px;
+  }
+
+  .ct4{
+    margin: 10px 100px 10px 100px;
+  }
+
   .con2{
     display: flex;
     align-items: center;
@@ -183,21 +204,29 @@ body {
   }
 
   .image-section-container2{
-    background-image: url("../assets/solution02.webp");
+    background-image: url("../assets/solution01.jpg");
     flex: 1;
-    text-align: center;
+    position: relative;
+    left: -24px;
     border-radius: 8px;
-    min-height: 310px; /* Placeholder height */
-    display: flex;
-    align-items: center;
-    background-size: cover,contain !important;
-    justify-content: center;
-    min-width: 400px !important;
-    height: auto;
+    min-height: 350px; 
+    background-size:  cover !important;
+    background-repeat: no-repeat;
+    min-width: 550px !important;
   }
 
   .conttex2{
     flex: 1;
+  }
+
+  .pcontent2{
+    padding-left: 10px;
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .container3-title{
+    margin-top: 3%;
   }
   
   .content-placeholder {
@@ -217,14 +246,14 @@ body {
   }
   
   .health-solutions-section .content-placeholder {
-    background-color: #f2f2f2; /* Light gray */
+    background-color: #f4f8fd ; /* Light blue */
     border: 1px solid #ccc;
   }
   
   /* Healthier Future Section */
   .healthier-future-section {
     padding: 40px 20px;
-    background-color: #eee; /* Light yellow */
+    background-color: #f4f8fd; /* Light blue */
   }
   
   .healthier-future-section .content-placeholder {
