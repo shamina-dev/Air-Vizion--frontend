@@ -1,0 +1,94 @@
+/* General styling */
+.container {
+    font-family: "Open Sans", sans-serif;
+  }
+  .titel {
+    background-color: #007bff; /* Blue header background */
+    background-image: url("../assets/solution02.webp");
+    background-size: contain, cover ;
+    background-repeat: round;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 35px !important;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 5%;
+    text-shadow: 2px 2px 4px #353131 !important;
+}
+  /* Page title */
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+  }
+
+  /* Card styling */
+  .card {
+    position: relative;
+    margin-left: 65px;
+    border: none;
+    width: 80rem;
+    border-radius: 20px;
+    background: #f9f9f9;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s;
+  }
+
+  .card-body{
+    position: relative;
+    top: 55px;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Card titles */
+  .card-title {
+    font-size: 30px;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+
+  /* Card text */
+  .card-text {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  /* List styling */
+  .list-group-item {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    color: #444;
+  }
+
+  /* Small screens */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+    }
+  }

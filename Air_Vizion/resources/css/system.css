@@ -5,9 +5,9 @@ body {
     background-color: #f8f9fa; /* Light gray background for the entire page */
 }
 
-.titel {
+.titel-system {
     background-color: #007bff; /* Blue header background */
-    background-image: url("../assets/system01.png");
+    background-image: url("../assets/solution02.webp");
     background-size: contain;
     font-family: 'Open Sans', sans-serif !important;
     font-size: 35px !important;
@@ -52,7 +52,7 @@ body {
 }
 
 .last-con-titel {
-    font-size: 50px !important; /* Set a larger font size */
+    font-size: 35px !important; /* Set a larger font size */
     font-weight: bold;
     text-align: center;
 }
@@ -150,7 +150,7 @@ body {
     background-size: cover;
 }
 
-.container5 {
+.container-img {
     background-image: url("../assets/system05.jpg");
     background-repeat: no-repeat;
     background-size: cover, contain;

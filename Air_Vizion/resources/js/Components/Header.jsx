@@ -23,9 +23,6 @@ const Header = () => {
                     <CustomLink href="/implementation" currentUrl={url}>
                         Implementation
                     </CustomLink>
-                    <CustomLink href="/feedback" currentUrl={url}>
-                        Feedback
-                    </CustomLink>
                     <CustomLink href="/contact" currentUrl={url}>
                         Contact
                     </CustomLink>
