@@ -20,7 +20,7 @@ body {
 }
 
 .nav {
-    background-color: rgb(16, 37, 66);
+    background-color: rgba(16, 37, 66, 0.8); /* Dark blue with 80% opacity */
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -28,7 +28,14 @@ body {
     gap: 2rem;
     padding: 10px 1rem;
     height: 60px;
+    backdrop-filter: blur(8px); /* Blurred glass effect */
+    position: fixed; /* Keeps navbar at the top */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures navbar stays above content */
 }
+
 
 .site-title {
     font-size: 2.5rem;
@@ -55,12 +62,12 @@ body {
 }
 
 .nav li.active {
-    background-color: #4a90e2;
+    color: #75b0e3;
     border-radius: 8px;
 }
 
 .nav li:hover {
-    background-color: #5a9bd4;
+    color: #75b0e3;
     border-radius: 8px;
 }
 

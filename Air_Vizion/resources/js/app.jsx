@@ -4,7 +4,6 @@ import System from "./Pages/System.jsx";
 import Home from "./Pages/Home.jsx";
 import Sensors from "./Pages/Sensors.jsx";
 import Implementation from "./Pages/Implementation.jsx";
-import Feedback from "./Pages/Feedback.jsx";
 import Contact from "./Pages/Contact.jsx";
 import Solution from "./Pages/Solution.jsx";
 import { Route, Routes } from "react-router-dom";
@@ -28,7 +27,6 @@ function App() {
                         element={<Implementation />}
                     />
                     <Route path="/solution" element={<Solution />} />
-                    <Route path="/feedback" element={<Feedback />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/admin/login" element={<Login />} />

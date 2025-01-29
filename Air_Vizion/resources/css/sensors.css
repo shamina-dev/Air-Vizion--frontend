@@ -42,8 +42,8 @@ body {
 }
 
 .sensor-icon {
-    width: 100px;
-    height: 100px;
+    width: 117px;
+    height: 117px;
     background-color: #ddd;
     border-radius: 8px;
     background-size: cover;
@@ -63,21 +63,51 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #f9f9f9;
+    background-color: #f4f8fd; /* Light blue */
     padding: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
     border-radius: 8px;
+    padding-bottom: 22px;
 }
 
 .sensor-details {
     flex: 1;
+    padding-right: 130px;
+    padding-left: 50px;
 }
 
-.sensor-box {
-    width: 150px;
+.sensor-box-mq135 {
+    position: relative;
+    right: 25px;
+    width: 184px;
     height: 150px;
     background-color: #ddd;
+    background-image: url("../assets/MQ135-sensor.jpg");
     border-radius: 8px;
+    background-size:  cover !important;
+    background-repeat: no-repeat;
+}
+.sensor-box-mq9 {
+    position: relative;
+    right: 25px;
+    width: 184px;
+    height: 150px;
+    /* background-color: #ddd; */
+    background-image: url("../assets/MQ9-sensor.jpg");
+    border-radius: 8px;
+    background-size:  cover !important;
+    background-repeat: no-repeat;
+}
+.sensor-box-dht11 {
+    position: relative;
+    right: 25px;
+    width: 184px;
+    height: 150px;
+    /* background-color: #ddd; */
+    background-image: url("../assets/DHT11-sensor.jpg");
+    border-radius: 8px;
+    background-size:  cover !important;
+    background-repeat: no-repeat;
 }
 
 .full-width-placeholder {
@@ -86,7 +116,18 @@ body {
     background-color: #ccc;
     border-radius: 8px;
     margin-top: 20px;
-    background-image: url("../assets/full-width-placeholder.png");
+    background-image: url("../assets/sensor05.webp");
     background-size: cover;
     background-position: center;
+}
+.sensor-name{
+    position:relative;
+    bottom: 10px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #007bff;
+}
+.sensor-desc{
+    padding-right: 120px;
+    font-size: 16px;
 }

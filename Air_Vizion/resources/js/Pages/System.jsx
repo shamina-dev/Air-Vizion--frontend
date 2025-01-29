@@ -7,7 +7,7 @@ const System = () => {
   return (
     <Layout>
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"></link>
-      <h3 className="titel">System</h3>
+      <h3 className="titel-system">System</h3>
 
       {/* First container */}
       <div className="system-container">
@@ -77,13 +77,13 @@ const System = () => {
 
       {/* Fifth container */}
       <div className="system-container full-width">
-        <div className="image-section container5">
+        <div className="image-section container-img">
         </div>
         <div className="text-section">
           <p className="last-con-titel">Benefits of the System</p>
           <p className="contents">Our air quality monitoring system delivers:</p>
-          <p className="contents">Our air quality monitoring system delivers comprehensive benefits, including health protection by identifying 
-            hazardous air conditions, enabling informed decision-making for individuals and communities, and supporting policymakers 
+          <p className="contents">Our air quality monitoring system delivers comprehensive benefits, including health protection by identifying
+            hazardous air conditions, enabling informed decision-making for individuals and communities, and supporting policymakers
             in implementing effective pollution control measures</p>
         </div>
       </div>
