@@ -15,15 +15,15 @@ const Contact = () => {
                     <div className="col-md-6">
                         <form className="contact-form">
                         <div className="mb-3">
-                            <label htmlFor="name" className="form-label">Your Name</label>
+                            <label htmlFor="name" className="form-label">Your Name:</label>
                             <input type="text" className="form-control" id="name" placeholder="Enter your name" required />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="email" className="form-label">Your Email</label>
+                            <label htmlFor="email" className="form-label">Your Email:</label>
                             <input type="email" className="form-control" id="email" placeholder="Enter your email" required />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="message" className="form-label">Your Message</label>
+                            <label htmlFor="message" className="form-label-message">Your Message:</label>
                             <textarea className="form-control" id="message" rows="4" placeholder="Type your message" required></textarea>
                         </div>
                         <button type="submit" className="btn btn-primary">Send Message</button>
