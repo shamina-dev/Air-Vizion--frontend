@@ -1,0 +1,113 @@
+.dashboard-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.summary-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.summary-card {
+    width: 150px;
+    background: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.summary-card h3 {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.summary-card p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.chart-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+.chart-box {
+    width: 100%;
+    height: 300px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+} 
+
+.table-container {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-10px);
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+
+.table-container.show {
+    max-height: 600px; 
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.data-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.even-row {
+    background-color: #f9f9f9;
+}
+
+/* Optional: Add hover effect */
+.data-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+.show-table-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        grid-template-columns: 1fr;
+    }
+}
