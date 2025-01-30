@@ -91,12 +91,12 @@ export default function Login({ status, canResetPassword }) {
                         
                         <PrimaryButton className="login-button" disabled={processing}> Log in
                         </PrimaryButton>
-                        <PrimaryButton
+                        <Link
                             href="/"
                             className="back-button"
                         >
-                            Back
-                        </PrimaryButton>
+                            BACK
+                        </Link>
                     </div>
                 </form>
             </div>
