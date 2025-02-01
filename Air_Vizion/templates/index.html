@@ -3,106 +3,124 @@
     <head>
         <title>Pollution Prediction</title>
         <style>
-            /* General Form Styling */
+            /* Background Styling */
+            body {
+                background: url('https://static.vecteezy.com/system/resources/previews/053/630/912/non_2x/a-factory-with-smoke-coming-out-of-the-chimneys-free-photo.jpeg') no-repeat center center/cover;
+                padding: 30px;
+                font-family: 'Poppins', sans-serif;
+                color: #ffffff;
+            }
+
+            /* Semi-Transparent Form (Glassmorphism Effect) */
             #prediction-form {
                 width: 100%;
-                max-width: 600px;
-                margin: 0 auto;
-                padding: 25px;
-                background-color: #ffffff;
-                border-radius: 10px;
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                max-width: 650px;
+                margin: 20px auto;
+                padding: 30px;
+                background: rgba(255, 255, 255, 0.15); /* Light transparency */
+                backdrop-filter: blur(10px);
+                border-radius: 12px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                font-family: 'Poppins', sans-serif;
+                border: 2px solid rgba(52, 152, 219, 0.3);
+                transition: all 0.3s ease-in-out;
             }
 
             /* Title Styling */
             #title {
                 text-align: center;
-                font-size: 2.2em;
-                margin-bottom: 25px;
-                color: #2c3e50;
-                font-weight: 600;
+                font-size: 2.5em;
+                margin-bottom: 30px;
+                color: #ffffff;
+                font-weight: 700;
                 letter-spacing: -0.5px;
+                text-transform: uppercase;
             }
 
             /* Label Styling */
             #prediction-form label {
                 display: block;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
                 font-weight: 600;
-                color: #34495e;
-                font-size: 14px;
+                color: #ffffff;
+                font-size: 15px;
             }
 
             /* Input Field Styling */
             #prediction-form input {
-                width: 100%;
-                padding: 12px;
-                margin-bottom: 20px;
-                border: 1px solid #dfe6e9;
-                border-radius: 6px;
-                font-size: 14px;
-                box-sizing: border-box;
-                transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                width: 95%;
+                padding: 14px;
+                margin-bottom: 18px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 8px;
+                font-size: 15px;
+                background: rgba(255, 255, 255, 0.2);
+                color: #ffffff;
+                backdrop-filter: blur(5px);
+                transition: all 0.3s ease-in-out;
+            }
+
+            #prediction-form input::placeholder {
+                color: rgba(255, 255, 255, 0.6);
             }
 
             #prediction-form input:focus {
                 border-color: #3498db;
                 outline: none;
-                box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+                box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
             }
 
             /* Button Styling */
             #prediction-form button {
-                padding: 14px 20px;
-                background-color: #27ae60;
+                padding: 16px;
+                background: linear-gradient(90deg, #3498db, #2980b9);
                 color: white;
                 border: none;
-                border-radius: 6px;
-                font-size: 16px;
-                font-weight: 600;
+                border-radius: 8px;
+                font-size: 17px;
+                font-weight: 700;
                 cursor: pointer;
                 width: 100%;
-                transition: background-color 0.3s ease, transform 0.2s ease;
+                transition: all 0.3s ease-in-out;
             }
 
             #prediction-form button:hover {
-                background-color: #219653;
-                transform: translateY(-2px);
+                background: linear-gradient(90deg, #2980b9, #2471a3);
+                transform: translateY(-3px);
+                box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
             }
 
             #prediction-form button:active {
                 transform: translateY(0);
+                box-shadow: none;
             }
 
             /* Prediction Result Styling */
             #prediction-result {
                 width: 100%;
-                max-width: 600px;
-                margin: 25px auto;
-                padding: 25px;
-                background-color: #ffffff;
-                border-radius: 10px;
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+                max-width: 650px;
+                margin: 30px auto;
+                padding: 30px;
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(10px);
+                border-radius: 12px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
                 text-align: center;
-                font-size: 16px;
-                color: #2c3e50;
+                font-size: 18px;
+                color: #ffffff;
                 white-space: pre-wrap;
                 font-family: 'Courier New', Courier, monospace;
-                line-height: 1.6;
+                line-height: 1.8;
+                border: 2px solid rgba(52, 152, 219, 0.3);
             }
 
-            /* Additional Thematic Touches */
-            body {
-                background-color: #ecf0f1;
-                padding: 20px;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Smooth Form Hover Effect */
+            #prediction-form:hover {
+                transform: scale(1.02);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
             }
 
-            /* Optional: Add a subtle gradient to the form background */
-            #prediction-form {
-                background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
-            }
+
         </style>
     </head>
     <body>
