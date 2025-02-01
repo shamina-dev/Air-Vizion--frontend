@@ -31,6 +31,9 @@ export default function Dashboard() {
         temperature: [],
     });
     const [showTable, setShowTable] = useState(false);
+    const [selectedParameter, setSelectedParameter] = useState("all");
+    const [pieChartData, setPieChartData] = useState({});
+
 
     useEffect(() => {
         const dataRef = ref(database, "TemperatureHumidity");
@@ -99,6 +102,124 @@ export default function Dashboard() {
         }
     }, [chartData]);
 
+    //new charts
+    useEffect(() => {
+        if (chartData.timestamps.length > 0) {
+            const chartConfigs = [
+                { id: "chartHumidityVsTemp", label: "Humidity vs. Temperature", type: "line", data: chartData.humidity, secondaryData: chartData.temperature, color1: "#36A2EB", color2: "#9966FF" },
+                { id: "chartGasScatter", label: "SO2/NO2 vs. CO/O3", type: "scatter", data: chartData.mq135, secondaryData: chartData.mq9, color: "#FF6384" },
+                { id: "chartAvgReadings", label: "Average Readings", type: "line", avgData: true, color: "#4BC0C0" },
+            ];
+
+            chartConfigs.forEach(({ id, label, type = "bar", data, secondaryData, color, color1, color2, avgData }) => {
+                const ctx = document.getElementById(id);
+                if (ctx) {
+                    const existingChart = Chart.getChart(id);
+                    if (existingChart) {
+                        existingChart.destroy();
+                    }
+
+                    let datasets = [{
+                        label,
+                        data,
+                        borderColor: color,
+                        backgroundColor: color,
+                        fill: true,
+                    }];
+
+                    if (type === "line" && secondaryData) {
+                        datasets.push({
+                            label: "Temperature (°C)",
+                            data: secondaryData,
+                            borderColor: color2,
+                            backgroundColor: color2,
+                            fill: false,
+                        });
+                    }
+
+                    if (type === "scatter") {
+                        datasets = [{
+                            label,
+                            data: data.map((value, index) => ({ x: value, y: secondaryData[index] })),
+                            borderColor: color,
+                            backgroundColor: color,
+                            pointRadius: 5,
+                        }];
+                    }
+
+                    if (avgData) {
+                        const avgValues = chartData.timestamps.map((_, index) => (
+                            (chartData.humidity[index] + chartData.mq135[index] + chartData.mq9[index] + chartData.temperature[index]) / 4
+                        ));
+                        datasets = [{
+                            label: "Average Sensor Readings",
+                            data: avgValues,
+                            borderColor: color,
+                            backgroundColor: color,
+                            fill: false,
+                        }];
+                    }
+
+                    new Chart(ctx, {
+                        type,
+                        data: { labels: chartData.timestamps, datasets },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: { x: { ticks: { autoSkip: true, maxTicksLimit: 10 } } },
+                        },
+                    });
+                }
+            });
+        }
+    }, [chartData]);
+
+    //Displaying warning Parameter section
+    useEffect(() => {
+        const dataRef = ref(database, "TemperatureHumidity");
+        onValue(dataRef, (snapshot) => {
+          const fetchedData = snapshot.val();
+          if (!fetchedData) return;
+
+          const dataArray = Object.values(fetchedData);
+          const latestEntry = dataArray[dataArray.length - 1];
+
+          const timestamps = [];
+          const humidity = [];
+          const mq135 = [];
+          const mq9 = [];
+          const temperature = [];
+
+          dataArray.slice(-20).forEach((entry) => {
+            timestamps.push(`${entry.date || "N/A"} ${entry.time || ""}`);
+            humidity.push(entry.humidity || 0);
+            mq135.push(entry.mq135_gas || 0);
+            mq9.push(entry.mq9_gas || 0);
+            temperature.push(entry.temperature || 0);
+          });
+
+          setLatestData(latestEntry);
+          setChartData({ timestamps, humidity, mq135, mq9, temperature });
+        });
+      }, []);
+
+      const getCardStyle = (value, type) => {
+        if (type === "humidity") {
+          return value < 40 || value > 50 ? "danger" : "safe";
+        }
+        if (type === "mq135") {
+          return value > 5000 ? "danger" : value > 1000 ? "warning" : "safe";
+        }
+        if (type === "mq9") {
+          return value > 300 ? "danger" : "safe";
+        }
+        if (type === "temperature") {
+          return value > 35 ? "danger" : "safe";
+        }
+        return "safe";
+      };
+
+
     return (
         <AuthenticatedLayout
             header={
@@ -123,7 +244,7 @@ export default function Dashboard() {
 
                 {/* Summary Section + Toggle Button */}
                 <div className="summary-container flex justify-between items-center">
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex btn-summary flex-wrap gap-4">
                         <div className="summary-card"><h3>Humidity</h3><p>{latestData.humidity || "N/A"}%</p></div>
                         <div className="summary-card"><h3>SO2/NO2 Gas</h3><p>{latestData.mq135_gas || "N/A"} ppm</p></div>
                         <div className="summary-card"><h3>CO/O3 Gas</h3><p>{latestData.mq9_gas || "N/A"} ppm</p></div>
@@ -162,6 +283,36 @@ export default function Dashboard() {
                     </div>
                 )}
 
+                {/* Warning Parameter section */}
+                <div className="d-container">
+                    <div className="card-con">
+                        <div className={`cards ${getCardStyle(latestData.humidity, "humidity")}`}>
+                        <h3>Humidity</h3>
+                        <p>{latestData.humidity}%</p>
+                        <span>{getCardStyle(latestData.humidity, "humidity") === "danger" ? "Danger" : "Normal"}</span>
+                        </div>
+
+                        <div className={`cards ${getCardStyle(latestData.mq135, "mq135")}`}>
+                        <h3>SO2/NO2 Gas (ppm)</h3>
+                        <p>{latestData.mq135} ppm</p>
+                        <span>{getCardStyle(latestData.mq135, "mq135") === "danger" ? "Danger" : "Normal"}</span>
+                        </div>
+
+                        <div className={`cards ${getCardStyle(latestData.mq9, "mq9")}`}>
+                        <h3>CO/O3 Gas (ppm)</h3>
+                        <p>{latestData.mq9} ppm</p>
+                        <span>{getCardStyle(latestData.mq9, "mq9") === "danger" ? "Danger" : "Normal"}</span>
+                        </div>
+
+                        <div className={`cards ${getCardStyle(latestData.temperature, "temperature")}`}>
+                        <h3>Temperature</h3>
+                        <p>{latestData.temperature}°C</p>
+                        <span>{getCardStyle(latestData.temperature, "temperature") === "danger" ? "Danger" : "Normal"}</span>
+                        </div>
+                    </div>
+                </div>
+
+
                 {/* Information Section */}
                 <div className="info-container">
                     <ul className="info-list">
@@ -187,6 +338,16 @@ export default function Dashboard() {
                     <div className="chart-box"><canvas id="chartMQ9"></canvas></div>
                     <div className="chart-box"><canvas id="chartTemperature"></canvas></div>
                 </div>
+
+                {/* new charts  */}
+                <div className="pcharts-container">
+                    {/* New Charts */}
+                    <div className="pcharts-box"><canvas id="chartHumidityVsTemp"></canvas></div>
+                    <div className="pcharts-box"><canvas id="chartGasScatter"></canvas></div>
+                    <div className="pcharts-box"><canvas id="chartAvgReadings"></canvas></div>
+                </div>
+
+
             </div>
         </AuthenticatedLayout>
     );

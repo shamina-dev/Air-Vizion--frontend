@@ -37,6 +37,13 @@ const Home = () => {
                         </p>
                     </div>
                 </div>
+                <footer className="bg-[rgba(16,37,66,0.8)] backdrop-blur-md text-gray-300 text-sm h-20 flex items-center justify-center">
+                    <p className="mb-1">&copy; {new Date().getFullYear()} Air Vizion. All rights reserved.</p>
+                </footer>
+
+
+
+
 
                 {/* <section className="containerr">
                     <div className="card-grid">
