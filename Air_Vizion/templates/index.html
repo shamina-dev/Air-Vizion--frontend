@@ -3,68 +3,105 @@
     <head>
         <title>Pollution Prediction</title>
         <style>
+            /* General Form Styling */
             #prediction-form {
                 width: 100%;
                 max-width: 600px;
                 margin: 0 auto;
-                padding: 20px;
-                background-color: #f4f4f9;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 25px;
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
 
+            /* Title Styling */
+            #title {
+                text-align: center;
+                font-size: 2.2em;
+                margin-bottom: 25px;
+                color: #2c3e50;
+                font-weight: 600;
+                letter-spacing: -0.5px;
+            }
+
+            /* Label Styling */
             #prediction-form label {
                 display: block;
-                margin-bottom: 8px;
-                font-weight: bold;
-                color: #333;
+                margin-bottom: 10px;
+                font-weight: 600;
+                color: #34495e;
+                font-size: 14px;
             }
 
+            /* Input Field Styling */
             #prediction-form input {
                 width: 100%;
-                padding: 10px;
-                margin-bottom: 15px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                font-size: 16px;
+                padding: 12px;
+                margin-bottom: 20px;
+                border: 1px solid #dfe6e9;
+                border-radius: 6px;
+                font-size: 14px;
                 box-sizing: border-box;
+                transition: border-color 0.3s ease, box-shadow 0.3s ease;
             }
 
             #prediction-form input:focus {
-                border-color: #4caf50;
+                border-color: #3498db;
                 outline: none;
+                box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
             }
 
+            /* Button Styling */
             #prediction-form button {
-                padding: 12px 20px;
-                background-color: #4caf50;
+                padding: 14px 20px;
+                background-color: #27ae60;
                 color: white;
                 border: none;
-                border-radius: 5px;
+                border-radius: 6px;
                 font-size: 16px;
+                font-weight: 600;
                 cursor: pointer;
                 width: 100%;
+                transition: background-color 0.3s ease, transform 0.2s ease;
             }
 
             #prediction-form button:hover {
-                background-color: #45a049;
+                background-color: #219653;
+                transform: translateY(-2px);
             }
-            #title {
-                text-align: center; /* Horizontally centers the text */
-                font-size: 2em; /* Adjust the font size */
-                margin-bottom: 20px; /* Adds space below the title */
+
+            #prediction-form button:active {
+                transform: translateY(0);
             }
+
+            /* Prediction Result Styling */
             #prediction-result {
                 width: 100%;
                 max-width: 600px;
-                margin: 20px auto; /* Centers the content horizontally */
-                padding: 20px;
-                background-color: #f4f4f9;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                text-align: center; /* Centers the text inside the div */
+                margin: 25px auto;
+                padding: 25px;
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+                text-align: center;
                 font-size: 16px;
-                white-space: pre-wrap; /* Allows the formatted JSON to wrap within the container */
+                color: #2c3e50;
+                white-space: pre-wrap;
+                font-family: 'Courier New', Courier, monospace;
+                line-height: 1.6;
+            }
+
+            /* Additional Thematic Touches */
+            body {
+                background-color: #ecf0f1;
+                padding: 20px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            /* Optional: Add a subtle gradient to the form background */
+            #prediction-form {
+                background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
             }
         </style>
     </head>

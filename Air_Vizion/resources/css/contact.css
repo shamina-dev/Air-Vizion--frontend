@@ -1,0 +1,127 @@
+/* General styling for the body */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Section styling */
+.contact-section {
+    padding: 80px 0;
+    background-color: #1E3A5F; /* Dark Blue Theme */
+    color: white;
+    text-align: center;
+}
+
+.section-title {
+    position: relative;
+    left: 40px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.section-subtitle {
+    position: relative;
+    left: 40px;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* Contact form styling */
+.contact-form {
+    position: relative;
+    left: 112px;
+    width: 80rem;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.contact-form .form-label {
+    font-weight: 600;
+    position: relative;
+    right: 20px;
+    font-size: 18px;
+}
+.form-label-message{
+    font-weight: 600;
+    position: relative;
+    right: 34px;
+    bottom: 70px;
+    font-size: 18px;
+}
+
+.contact-form .form-control {
+    font-size: 1rem;
+    width: 30rem;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0px 0px 10px rgba(74, 144, 226, 0.3);
+}
+
+.contact-form .btn-primary {
+    background-color: #2883ec;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form .btn-primary:hover {
+    background-color: #1b74cd;
+}
+
+/* Contact details styling */
+.contact-details {
+    position: relative;
+    left: 112px;
+    width: 80rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+    margin-top: 20px;
+    color: #fff;
+}
+
+.contact-details h4 {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.contact-details p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .contact-form,
+    .contact-details {
+        margin-top: 20px;
+    }
+}
